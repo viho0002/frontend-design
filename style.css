@@ -21,16 +21,27 @@ main {
   } */
 }
 
-#card {
-  background-color: #ffffff;
-  display: flex;
-  padding: var(--card-padding);
-  gap: 5%;
-  img {
-    border-radius: 999px;
-    width: var(--image-width);
-  }
-  div {
+.card_wrapper {
+  width: 30vw;
+  margin: 0 auto;
+  container-type: inline-size;
+  > div {
+    container-type: card;
+    background-color: #ffffff;
+    padding: var(--card-padding);
+    display: flex;
+    flex-direction: column;
+    > div {
+      text-align: center;
+      margin-top: 5%;
+      * {
+        margin-top: 2%;
+      }
+    }
+    img {
+      border-radius: 999px;
+      width: 100%;
+    }
     h2 {
       font-size: var(--font-heading);
       font-weight: bold;
@@ -41,10 +52,44 @@ main {
       color: turquoise;
     }
   }
+  @container (width > 350px) {
+    > div {
+      > div {
+        text-align: initial;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+      }
+      p {
+        font-size: 2rem;
+      }
+    }
+  }
+  @container (width > 410px) {
+    > div {
+      container-type: card;
+      flex-direction: row;
+      gap: 5%;
+
+      img {
+        width: var(--image-width);
+      }
+      h2 {
+        font-size: var(--font-heading);
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
 }
 
 #logo_div {
   display: flex;
+  justify-content: space-evenly;
+  gap: 2rem;
+
   svg {
     color: var(--color-icon);
   }
