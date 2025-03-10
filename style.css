@@ -4,22 +4,26 @@
   grid-auto-columns: 1fr;
   grid-template-areas:
     "title title image-1"
-    "image-2 list tag";
+    "list list tag";
   gap: var(--spacing-base);
 
   .title {
+    grid-area: title;
     --bg: var(--color-brand-yellow);
   }
 
   .list {
+    grid-area: list;
     --bg: var(--color-brand-coffee);
   }
 
   .image-1 {
+    grid-area: image-1;
     color: var(--color-text-accent);
   }
 
   .tag {
+    grid-area: tag;
     --bg: var(--color-brand-olive);
     font-size: 2rem;
     line-height: 1.2;
