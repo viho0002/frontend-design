@@ -27,7 +27,25 @@ const { id, question, answer, linkBlock } = props;
   details {
     color: hsl(190 30% 12%);
     border-bottom: 1px solid #dadada;
+    max-inline-size: 150ch;
+    interpolate-size: allow-keywords;
 
+    &::details-content {
+      opacity: 0;
+      block-size: 0;
+      transition: content-visibility .5s allow-discrete, opacity .5s, block-size .5s, rotate .5s;
+    }
+    
+    &[open]::details-content {
+
+      opacity: 1;
+     block-size: auto;
+    }
+    &[open] {
+    --r: z 90deg;
+    
+}
+    }
     summary {
       font-weight: 700;
       color: #181818;
@@ -55,6 +73,7 @@ const { id, question, answer, linkBlock } = props;
           inline-size: auto;
           height: 1lh;
           flex-shrink: 0;
+          rotate: var(--r)
         }
       }
     }
